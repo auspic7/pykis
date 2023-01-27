@@ -656,6 +656,8 @@ class Api:  # pylint: disable=too-many-public-methods
         url_path = "/uapi/overseas-stock/v1/trading/order"
 
         tr_id = get_order_tr_id_from_market_code(market_code, buy)
+        if self.domain.is_virtual() and not buy:
+            tr_id = "VTTT1001U"
 
         params = {
             "CANO": self.account.account_code,
