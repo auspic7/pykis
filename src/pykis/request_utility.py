@@ -89,7 +89,7 @@ class APIResponse:
         API의 output 값(ex> output, output1, output2)들을 list로 가져온다.
         뒤에 붙은 번호 순서대로(output이 있는 경우 제일 앞) 배치한다.
         """
-        target_keys = ["output"] + ["output{i}" for i in range(1, 10)]
+        target_keys = ["output"] + [f"output{i}" for i in range(1, 10)]
         ret = [self.body[target]
                for target in target_keys if target in self.body]
 
